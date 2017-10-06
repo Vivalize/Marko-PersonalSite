@@ -71,3 +71,72 @@ body {
     background-image: url(tri2.jpg);
     background-blend-mode: 
 }
+
+.project-wrapper {
+    margin: auto;
+}
+
+.projects-wrapper .project {
+    display: inline-block;
+    width: 176px;
+    height: 150px;
+    padding: 4px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 1px 3px 5px #999;
+    background-color: #fefefe;
+    overflow: hidden;
+}
+
+.projects-wrapper .project-img {
+    width: 100%;
+    height: 100%;
+    transform: scale(1.25);
+/*    object-fit: fill;*/
+    object-fit: cover;
+    z-index: 20;
+    box-shadow: 0 0 200px rgba(0,0,0,0.9) inset;
+}
+
+.projects-wrapper .project-title {
+    position: absolute;
+/*    right 12px;*/
+    top: 16px;
+    font-size: 22px;
+    text-shadow: 0px 1px 2px #999;
+    color: white;
+    font-weight: bold;
+    transition: .5s ease;
+    text-align: left;
+    z-index: 100;
+}
+
+.projects-wrapper .project-description {
+    position: absolute;
+    bottom: 4px;
+    padding: 4px;
+/*    width: 152px;*/
+    max-height: 0;
+/*    text-overflow: clip;*/
+    text-align: left;
+    overflow: hidden;
+    transition: 1.0s ease;
+    font-size: 12px;
+    color: white;
+    text-shadow: 0px 1px 2px #AAA;
+    z-index: 99;
+}
+
+.projects-wrapper .project:hover .project-img {
+/*    background: #eeeeff;*/
+    filter: blur(3px) brightness(80%);
+    transition: filter 0.4s ease;
+    width: 100%;
+}
+.projects-wrapper .project:hover .project-title {
+    top: 4px;
+    font-size: 18px;
+}
+.projects-wrapper .project:hover .project-description{
+    max-height: 150px;
+}
