@@ -68,24 +68,38 @@ body {
     margin: auto;
     margin-bottom: 50px;
     background: #fff;
-    background-image: url(tri2.jpg);
+    background-image: url(tri_orange.jpg);
     background-blend-mode: 
+}
+
+.vignette {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    box-shadow: 0 0 80px rgba(0,0,0,0.5) inset;
+    z-index: 10;
+    transition: .5s ease;
 }
 
 .project-wrapper {
     margin: auto;
 }
 
+.project-category {
+    font-size: 20px;
+}
+
 .projects-wrapper .project {
     display: inline-block;
-    width: 176px;
-    height: 150px;
-    padding: 4px;
+    width: 160px;
+    height: 144px;
     position: relative;
     overflow: hidden;
     box-shadow: 1px 3px 5px #999;
     background-color: #fefefe;
     overflow: hidden;
+    transition: .5s ease;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.9);
 }
 
 .projects-wrapper .project-img {
@@ -94,14 +108,15 @@ body {
     transform: scale(1.25);
 /*    object-fit: fill;*/
     object-fit: cover;
-    z-index: 20;
-    box-shadow: 0 0 200px rgba(0,0,0,0.9) inset;
+    z-index: -1;
 }
 
 .projects-wrapper .project-title {
     position: absolute;
-/*    right 12px;*/
+    left: 8px;
     top: 16px;
+    max-width: 144px;
+/*    right: 8px;*/
     font-size: 22px;
     text-shadow: 0px 1px 2px #999;
     color: white;
@@ -114,17 +129,28 @@ body {
 .projects-wrapper .project-description {
     position: absolute;
     bottom: 4px;
-    padding: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
 /*    width: 152px;*/
     max-height: 0;
 /*    text-overflow: clip;*/
     text-align: left;
     overflow: hidden;
-    transition: 1.0s ease;
-    font-size: 12px;
+    transition: 0.5s ease;
+/*    transition-delay: .2s;*/
+    font-size: 8.9px;
     color: white;
     text-shadow: 0px 1px 2px #AAA;
     z-index: 99;
+}
+
+.projects-wrapper .project:hover .vignette {
+    box-shadow: 0 0 200px rgba(0,0,0,0.9) inset;
+}
+
+.projects-wrapper .project:hover {
+/*    height: 160px;*/
+    width: 210px;
 }
 
 .projects-wrapper .project:hover .project-img {
@@ -136,7 +162,58 @@ body {
 .projects-wrapper .project:hover .project-title {
     top: 4px;
     font-size: 18px;
+    max-width: 118px;
 }
 .projects-wrapper .project:hover .project-description{
     max-height: 150px;
+    font-size: 12px;
+}
+
+#last-updated {
+    color: darkgrey;
+    font-size: 12px;
+    padding-top: 8px;
+}
+
+.interest {
+    background-color: white;
+}
+
+.interests-wrapper .interest {
+    display: inline-block;
+    height: 54px;
+    width: 268px;
+    padding: 8px;
+    position: relative;
+    box-shadow: 1px 3px 5px #999;
+    overflow: hidden;
+}
+
+.interest-title {
+    font-size: 16px;
+    font-weight: bold;
+    left: 58px;
+    text-align: left;
+    position: absolute
+}
+
+.interest-desc {
+    font-size: 12px;
+    left: 58px;
+    top: 30px;
+    text-align: left;
+    position: absolute
+}
+
+.interest-img {
+    left: 12px;
+    top: 12px;
+    position: absolute;
+/*    height: 30px;*/
+    height: 32px;
+}
+
+.interests-wrapper .interest:hover {
+    background-color: #fffcf7;
+    transition: .5s;
 }
