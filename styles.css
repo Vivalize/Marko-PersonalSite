@@ -1,16 +1,22 @@
-* {
-  font-family: 'Raleway', sans-serif;
-  margin: 0;
+:root {
+    --bg-color: #fff;
+    --shadow-color: #aaa;
+    --title-color: #fff;
 }
 
-html,
-body {
-  height: 100%;
-/*  background-color: #333;*/
+* {
+    font-family: 'Raleway', sans-serif;
+    margin: 0;
+/*    background-color: #333;*/
+}
+
+html body {
+    height: 100%;
+    background-color: var(--bg-color);
 }
 
 header {
-/*    background-color: #67b8de;*/
+    background-color: #67b8de;
     background: url("pink_sky.jpg") no-repeat center top #67b8de;
     height: 200px;
     margin-bottom: -120px;
@@ -51,10 +57,17 @@ header ul {
 }
 
 body {
-  color: #fff;
+  color: #333;
   text-align: center;
+    background-color: #333;
 /*  text-shadow: 0 .05rem .1rem rgba(0,0,0,.5);*/
 }
+/*
+
+body h1 {
+    color: var(--title-color);
+}
+*/
 
 #quickStats {
     text-align: left;
@@ -62,14 +75,54 @@ body {
 }
 
 .center-wrapper {
-    box-shadow: 0 5px 8px #DDD;
+    box-shadow: 0 5px 8px var(--shadow-color);
     width: 600px;
     padding: 30px;
     margin: auto;
     margin-bottom: 50px;
-    background: #fff;
+/*    background: #333;*/
     background-image: url(tri_orange.jpg);
-    background-blend-mode: 
+    background-size:cover;
+}
+
+.skills-wrapper {
+    margin: auto;
+}
+
+.skills-wrapper .skill {
+    display: inline-block;
+    width: 260px;
+    height: 148px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 1px 3px 5px #999;
+    background: #fefefe;
+    padding: 8px;
+}
+
+.skills-wrapper .skill-title {
+    font-size: 18px;
+    position: absolute;
+    left: 38px;
+    font-weight: bold;
+    
+}
+
+.skills-wrapper .skill-list {
+    font-size: 14px;
+    position: absolute;
+    top: 38px;
+    left: 24px;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+.skills-wrapper .skill-icon {
+    width: 22px;
+    left: 8px;
+    top: 10px;
+    position: absolute;
 }
 
 .vignette {
@@ -81,7 +134,7 @@ body {
     transition: .5s ease;
 }
 
-.project-wrapper {
+.projects-wrapper {
     margin: auto;
 }
 
@@ -97,9 +150,8 @@ body {
     overflow: hidden;
     box-shadow: 1px 3px 5px #999;
     background-color: #fefefe;
-    overflow: hidden;
     transition: .5s ease;
-    box-shadow: 1px 1px 5px rgba(0,0,0,0.9);
+/*    box-shadow: 1px 1px 5px rgba(0,0,0,0.9);*/
 }
 
 .projects-wrapper .project-img {
