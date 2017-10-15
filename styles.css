@@ -105,7 +105,6 @@ body h1 {
     position: absolute;
     left: 38px;
     font-weight: bold;
-    
 }
 
 .skills-wrapper .skill-list {
@@ -236,6 +235,7 @@ body h1 {
     height: 54px;
     width: 268px;
     padding: 8px;
+/*    margin: 4px;*/
     position: relative;
     box-shadow: 1px 3px 5px #999;
     overflow: hidden;
@@ -266,6 +266,53 @@ body h1 {
 }
 
 .interests-wrapper .interest:hover {
+    background-color: #fffcf7;
+    transition: .5s;
+}
+
+.contact-card {
+    background-color: white;
+}
+
+.contacts-wrapper .contact-card {
+    display: inline-block;
+    height: 40px;
+    padding: 8px;
+    margin: 2px;
+    position: relative;
+    box-shadow: 1px 3px 5px #999;
+    overflow: hidden;
+}
+
+
+.contacts-wrapper #email {
+    width: 270px;
+}
+.contacts-wrapper #phone {
+    width: 180px;
+}
+.contacts-wrapper #address {
+    width: 458px;
+}
+
+.contact-info {
+    font-size: 16px;
+    font-weight: bold;
+    left: 48px;
+    top: 2px;
+    text-align: left;
+    position: absolute
+}
+
+.contact-icon {
+    left: 12px;
+    top: 8px;
+    position: absolute;
+/*    height: 30px;*/
+    height: 24px;
+}
+
+.contacts-wrapper .contact-card:hover {
     background-color: #fffcf7;
     transition: .5s;
 }
