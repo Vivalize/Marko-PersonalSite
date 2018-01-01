@@ -11,24 +11,6 @@
 
         <!-- jQuery library -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        
-<!--
-        <script>
-            ( function() {
-                var speedModifier = 4;// parallax speed modifier
-                window.onscroll = function() {
-                    document.getElementById("parallax-bgi").style.backgroundPosition = "0px " + ( window.pageYOffset / speedModifier ) + "px";
-                }
-            })();
-        </script>
--->
-        <script src="js/parallax.js"></script>
-        
-        <script>
-            $(document).ready(function () {
-                $(document.body).parallax({imageSrc: 'pink_sky.jpg'});
-            });
-        </script>
 
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -37,12 +19,12 @@
 
     </head>
     
-<body data-spy="scroll" data-target=".nav-stuff" data-offset="50" id="parallax-bgi">
-    
-    <div class="parallax-window" data-parallax="scroll" data-image-src="pink_sky.jpg"></div>
-    
+<body data-spy="scroll" data-target=".nav-stuff" data-offset="50">
+        
     <main class="wrapper">
-    <section class="section parallax bg1">
+    <div id="parallax1"></div>
+    <section class="section parallax bg1" id="parallax2">
+    
 
     <header id="top">
         <ul class="nav nav-masthead">
@@ -137,6 +119,43 @@
                     <li>First Aid and CPR/AED Certified</li>
                     <li>Food Service Certified</li>
                 </ul>
+            </div>
+        </div>
+    </div>
+        
+    <div class="center-wrapper" id="interests">
+        <h1>Interests</h1>
+        <hr class="half-rule"/>
+        <div class="interests-wrapper">
+            <div class="interest">
+                <img class="interest-img" src="icons/arduino.png">
+                <div class="interest-title">Hobbyist Electronics</div>
+                <div class="interest-desc">Raspis, Arduino, FPGAs, oh my!</div>
+            </div>
+            <div class="interest">
+                <img class="interest-img" src="icons/music.png">
+                <div class="interest-title">Music</div>
+                <div class="interest-desc">Piano, Violin, Guitar, & Theremin</div>
+            </div>
+            <div class="interest">
+                <img class="interest-img" src="icons/surfing.png">
+                <div class="interest-title">Sports</div>
+                <div class="interest-desc">Surfing✔ Gymnastics✔ Quidditch✔</div>
+            </div>
+            <div class="interest">
+                <img class="interest-img" src="icons/3dprinting.png">
+                <div class="interest-title">3D Printing</div>
+                <div class="interest-desc">With my custom "Red Hot Chili Bot"</div>
+            </div>
+            <div class="interest">
+                <img class="interest-img" src="icons/camping.png">
+                <div class="interest-title">The Outdoors</div>
+                <div class="interest-desc">Raised in the sparkling Trinity Alps</div>
+            </div>
+            <div class="interest">
+                <img class="interest-img" src="icons/movies.png">
+                <div class="interest-title">Cinema</div>
+                <div class="interest-desc">I'm serious. And don't call me Shirley</div>
             </div>
         </div>
     </div>
@@ -264,42 +283,6 @@
             <h3>And much more in progress...</h3>
         </div>
     </div>
-    <div class="center-wrapper" id="interests">
-        <h1>Interests</h1>
-        <hr class="half-rule"/>
-        <div class="interests-wrapper">
-            <div class="interest">
-                <img class="interest-img" src="icons/arduino.png">
-                <div class="interest-title">Hobbyist Electronics</div>
-                <div class="interest-desc">Raspis, Arduino, FPGAs, oh my!</div>
-            </div>
-            <div class="interest">
-                <img class="interest-img" src="icons/music.png">
-                <div class="interest-title">Music</div>
-                <div class="interest-desc">Piano, Violin, Guitar, & Theremin</div>
-            </div>
-            <div class="interest">
-                <img class="interest-img" src="icons/surfing.png">
-                <div class="interest-title">Sports</div>
-                <div class="interest-desc">Surfing✔ Gymnastics✔ Quidditch✔</div>
-            </div>
-            <div class="interest">
-                <img class="interest-img" src="icons/3dprinting.png">
-                <div class="interest-title">3D Printing</div>
-                <div class="interest-desc">With my custom "Red Hot Chili Bot"</div>
-            </div>
-            <div class="interest">
-                <img class="interest-img" src="icons/camping.png">
-                <div class="interest-title">The Outdoors</div>
-                <div class="interest-desc">Raised in the sparkling Trinity Alps</div>
-            </div>
-            <div class="interest">
-                <img class="interest-img" src="icons/movies.png">
-                <div class="interest-title">Cinema</div>
-                <div class="interest-desc">I'm serious. And don't call me Shirley</div>
-            </div>
-        </div>
-    </div>
     <div class="center-wrapper" id="resume">
         <h1>Resume</h1>
         <hr class="half-rule"/>
@@ -328,4 +311,26 @@
 </section>
 </main>
 </body>
+    
+    <script>
+ 
+        // Create cross browser requestAnimationFrame method:
+        window.requestAnimationFrame = window.requestAnimationFrame
+        || window.mozRequestAnimationFrame
+        || window.webkitRequestAnimationFrame
+        || window.msRequestAnimationFrame
+        || function(f){setTimeout(f, 1000/60)}
+ 
+        var background1 = document.getElementById('parallax1')
+ 
+        function parallaxbubbles(){
+            var scrolltop = window.pageYOffset // get number of pixels document has scrolled vertically 
+            background1.style.top = -scrolltop * .3 + 'px' // move bubble1 at 20% of scroll rate
+        }
+ 
+        window.addEventListener('scroll', function(){ // on page scroll
+            requestAnimationFrame(parallaxbubbles) // call parallaxbubbles() on next available screen paint
+        }, false)
+    </script>
+    
 </html>

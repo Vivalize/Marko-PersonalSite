@@ -1,1 +1,0 @@
-$('body').parallax({imageSrc: 'pink_sky.jpg'});
