@@ -2,8 +2,8 @@
 <html lang="en">
     <head>
         <title>Marko Ritachka</title>
-        <link rel="stylesheet" href="styles.css"/>
-        <meta charset="utf-8"> 
+        <link rel="stylesheet" href="css/styles.css"/>
+        <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	
         <!-- Latest compiled and minified CSS -->
@@ -11,13 +11,38 @@
 
         <!-- jQuery library -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        
+<!--
+        <script>
+            ( function() {
+                var speedModifier = 4;// parallax speed modifier
+                window.onscroll = function() {
+                    document.getElementById("parallax-bgi").style.backgroundPosition = "0px " + ( window.pageYOffset / speedModifier ) + "px";
+                }
+            })();
+        </script>
+-->
+        <script src="js/parallax.js"></script>
+        
+        <script>
+            $(document).ready(function () {
+                $(document.body).parallax({imageSrc: 'pink_sky.jpg'});
+            });
+        </script>
 
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+        <link rel="stylesheet" type="text/css" href="css/custom.css">
 
     </head>
     
-<body data-spy="scroll" data-target=".nav-stuff" data-offset="50">
+<body data-spy="scroll" data-target=".nav-stuff" data-offset="50" id="parallax-bgi">
+    
+    <div class="parallax-window" data-parallax="scroll" data-image-src="pink_sky.jpg"></div>
+    
+    <main class="wrapper">
+    <section class="section parallax bg1">
 
     <header id="top">
         <ul class="nav nav-masthead">
@@ -33,10 +58,10 @@
     <div class="center-wrapper" id="bio">
         <div class="media">
             <div class="media-left media-middle">
-                <img src="meNew.JPG" class="img-circle" alt="Marko" width="120" height="120">
+                <img src="meNew.JPG" class="img-circle" id="profilePic" alt="Marko">
             </div>
             <div class="media-body">
-                <h1>Marko Ritachka</h1>
+                <h1 id="fullName">Marko Ritachka</h1>
                 <div id="quickStats">
                     <ul>
                         <li>Junior student studying at <strong>UC San Diego</strong></li>
@@ -163,8 +188,8 @@
                 <div class="project">
                     <div class="vignette"></div>
                     <div class="project-title">Custom 3D Printer</div>
-                    <div class="project-description">A custom high-end 3D Printer built from scratch</div>
-                    <img src="pink_sky.jpg" class="project-img">
+                    <div class="project-description">A custom high-end FDM Cartesian-Style 3D Printer built from scratch and continuously being upgraded</div>
+                    <img src="project-pics/printer.JPG" class="project-img">
                 </div>
                 <a class="project" href="https://github.com/Vivalize/Flapjackify" target="_blank">
                     <div class="vignette"></div>
@@ -175,7 +200,7 @@
                 <div class="project">
                     <div class="vignette"></div>
                     <div class="project-title">Wand Laser Tag</div>
-                    <div class="project-description">An Arduino-base laser tag system embedded in the form factor of a Harry-Potter style wand</div>
+                    <div class="project-description">An Arduino-based laser tag system embedded in the form factor of a Harry-Potter style wand</div>
                     <img src="pink_sky.jpg" class="project-img">
                 </div>
                 <div class="project">
@@ -207,14 +232,14 @@
                 </div>
                 <a class="project" href="https://github.com/Vivalize/Arduino-Electric-Longboard" target="_blank">
                     <div class="vignette"></div>
-                    <div class="project-title">Custom Electic Longboard</div>
-                    <div class="project-description">A electric longboard made from scratch with custom controls and electric drivetrain</div>
-                    <img src="pink_sky.jpg" class="project-img">
+                    <div class="project-title">Electic Longboard</div>
+                    <div class="project-description">Electric longboard made from scratch with top speed of 40+ mph and 30 mile range</div>
+                    <img src="project-pics/longboard.jpg" class="project-img">
                 </a>
                 <a class="project" href="https://github.com/Vivalize/SortingHat" target="_blank">
                     <div class="vignette"></div>
-                    <div class="project-title">Sorting Hat</div>
-                    <div class="project-description">An animatronic and wireless Sorting Hat from the Harry Potter films that is controlled and voiced by someone using audio streaming and facial features detection</div>
+                    <div class="project-title">Animatronic Sorting Hat</div>
+                    <div class="project-description">An animatronic and wireless Sorting Hat from the Harry Potter films. It streams a user's voice and mimics their facial expression with 5 motors</div>
                     <img src="project-pics/sorting-hat.jpg" class="project-img">
                 </a>
                 <div class="project">
@@ -226,7 +251,7 @@
                 <div class="project">
                     <div class="vignette"></div>
                     <div class="project-title">Powersuit Costume</div>
-                    <div class="project-description">A superhero costume I was hired to make for an elementary school principal for a themed event. Created with foam, 3D printing, and Arduino related components to make it light up</div>
+                    <div class="project-description">A commissioned superhero costume for a school principal at a themed event. Created with foam, 3D printing, and Arduino related electronics</div>
                     <img src="project-pics/sprague.JPG" class="project-img">
                 </div>
                 <a class="project" href="http://quidditch.ucsd.edu/" target="_blank">
@@ -300,6 +325,7 @@
             </div>
         </div>
     </div>
-
+</section>
+</main>
 </body>
 </html>
