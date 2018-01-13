@@ -22,7 +22,18 @@
 <body data-spy="scroll" data-target=".nav-stuff" data-offset="50">
         
     <main class="wrapper">
-    <div id="parallax1"></div>
+    <div id="parallax0"></div>
+    <div id="parallax1">
+        <img src="parallaxTest/0.png" id="p0">
+        <img src="parallaxTest/1.png" id="p1">
+        <img src="parallaxTest/2.png" id="p2">
+        <img src="parallaxTest/3.png" id="p3">
+        <img src="parallaxTest/4.png" id="p4">
+        <img src="parallaxTest/5.png" id="p5">
+        <img src="parallaxTest/6.png" id="p6">
+        <img src="background_blue.svg" id="pb">
+        <img src="parallaxTest/7.png" id="p7">
+    </div>
     <section class="section parallax bg1" id="parallax2">
     
 
@@ -320,15 +331,52 @@
         || window.msRequestAnimationFrame
         || function(f){setTimeout(f, 1000/60)}
  
-        var background1 = document.getElementById('parallax1')
+//        var background1 = document.getElementById('parallax0')
+        
+        var p0 = document.getElementById('p0')
+        var p1 = document.getElementById('p1')
+        var p2 = document.getElementById('p2')
+        var p3 = document.getElementById('p3')
+        var p4 = document.getElementById('p4')
+        var p5 = document.getElementById('p5')
+        var p6 = document.getElementById('p6')
+        var p7 = document.getElementById('p7')
+        var pb = document.getElementById('pb')
+        
+        var head = document.getElementById('top')
  
-        function parallaxbubbles(){
-            var scrolltop = window.pageYOffset // get number of pixels document has scrolled vertically 
-            background1.style.top = -scrolltop * .3 + 'px' // move bubble1 at 20% of scroll rate
+        function parallax(){
+            var scrolltop = window.pageYOffset
+//            background1.style.top = -scrolltop * .3 + 'px'
+            
+            let backSpeed = 0.09
+            
+            p0.style.top = -scrolltop * (0*backSpeed) + 'px'
+            p1.style.top = -scrolltop * (1*backSpeed) + 'px'
+            p2.style.top = -scrolltop * (2*backSpeed) + 'px'
+            p3.style.top = -scrolltop * (3*backSpeed) + 'px'
+            p4.style.top = -scrolltop * (4*backSpeed) + 'px'
+            p5.style.top = -scrolltop * (5*backSpeed) + 'px'
+            p6.style.top = -scrolltop * (6*backSpeed) + 'px'
+            p7.style.top = -scrolltop * (7*backSpeed) + 'px'
+            pb.style.top = (-scrolltop * (7*backSpeed)) + 350 + 'px'
+            
+            let bgStart = 100
+            let bgTrans = 240
+            let trans = 0.94
+            let bgColor = 'rgba(12,32,34,'
+            
+            if (scrolltop < bgStart) {
+                head.style.backgroundColor = bgColor + 0 + ')'
+            } else if (scrolltop >= bgStart && scrolltop <= bgTrans) {
+                head.style.backgroundColor = bgColor + (trans*(scrolltop-bgStart)/(bgTrans-bgStart)) + ')'
+            } else {
+                head.style.backgroundColor = bgColor + trans + ')'
+            }
         }
  
-        window.addEventListener('scroll', function(){ // on page scroll
-            requestAnimationFrame(parallaxbubbles) // call parallaxbubbles() on next available screen paint
+        window.addEventListener('scroll', function(){
+            requestAnimationFrame(parallax)
         }, false)
     </script>
     
