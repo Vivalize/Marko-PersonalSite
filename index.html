@@ -31,9 +31,11 @@
         <img src="parallaxTest/4.png" id="p4">
         <img src="parallaxTest/5.png" id="p5">
         <img src="parallaxTest/6.png" id="p6">
-        <img src="background_blue.svg" id="pb">
-        <img src="parallaxTest/7.png" id="p7">
     </div>
+        <div id="pF">
+            <img src="parallaxTest/7.png" id="p7">
+            <img src="background_blue.svg" id="pb">
+        </div>
     <section class="section parallax bg1" id="parallax2">
     
 
@@ -341,8 +343,8 @@
         var p5 = document.getElementById('p5')
         var p6 = document.getElementById('p6')
         var p7 = document.getElementById('p7')
-        var pb = document.getElementById('pb')
         
+        var pb = document.getElementById('pb')
         var head = document.getElementById('top')
  
         function parallax(){
@@ -359,7 +361,7 @@
             p5.style.top = -scrolltop * (5*backSpeed) + 'px'
             p6.style.top = -scrolltop * (6*backSpeed) + 'px'
             p7.style.top = -scrolltop * (7*backSpeed) + 'px'
-            pb.style.top = (-scrolltop * (7*backSpeed)) + 350 + 'px'
+            pb.style.top = (-scrolltop * (7*backSpeed)) + 'px'
             
             let bgStart = 100
             let bgTrans = 240

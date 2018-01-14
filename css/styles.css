@@ -1,6 +1,5 @@
 :root {
     --bg-color: #001f3c;
-/*    --bg-color: deepskyblue;*/
 /*    --shadow-color: #344;*/
     --title-color: #fff;
     --highlight-color: rgba(220, 250, 255, .1);
@@ -30,9 +29,19 @@ html body {
     left: 0;
 }
 
-#pb {
-    top: 350px;
+#pF {
+    position: fixed;
+    width: 100%;
+    z-index: -50;
+    left: 0;
 }
+
+#pF img {
+    position: relative;
+    width: 100%;
+    left: 0;
+}
+
 
 header {
     text-decoration: none;
@@ -89,7 +98,7 @@ body h1 {
 
 #bio {
     padding-left: 60px;
-    padding-top: 300px;
+    padding-top: 200px;
 }
 
 #fullName {
@@ -108,20 +117,13 @@ body h1 {
     color: var(--subtext-color);
 }
 
+/*Mobile Devices*/
 .center-wrapper {
     box-shadow: 0 5px 8px var(--shadow-color);
-    width: 100%;
+    width: 660px;
     padding: 30px;
     margin: auto;
-/*    margin-bottom: 10px;*/
     background-size:cover;
-}
-
-/* For width 400px and larger: */
-@media only screen and (min-width: 660px) {
-    .center-wrapper {
-        width: 660px;
-    }
 }
 
 .skills-wrapper .skill {
@@ -371,4 +373,32 @@ body h1 {
 .contacts-wrapper .contact-card:hover {
 /*    background-color: var(--tile-color);*/
     transition: .5s;
+}
+
+/* Desktop Devices */
+@media only screen and (max-width: 660px) {
+    .center-wrapper {
+        width: 100%;
+    }
+    
+    .projects-wrapper .project {
+        width: 120px;
+        height: 90px;
+        margin: 4px;
+    }
+
+}
+
+@media only screen and (max-width: 1200px) {
+    #parallax1 img {
+        width: 1200px;
+        left: 50%;
+        transform: translate(-50%);
+    }
+    
+    #pF {
+        width: 1200px;
+        left: 50%;
+        transform: translate(-50%);
+    }
 }
