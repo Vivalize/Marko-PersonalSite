@@ -96,8 +96,9 @@ body h1 {
 }
 
 #bio {
-    padding-left: 60px;
+/*    padding-left: 50px;*/
     padding-top: 200px;
+    width: 500px;
 }
 
 #fullName {
@@ -107,8 +108,6 @@ body h1 {
 
 #profilePic {
     width: 120px;
-    height: 120px;
-    margin-left: 50px;
 }
 
 #quickStats {
@@ -399,5 +398,15 @@ body h1 {
         width: 1200px;
         left: 50%;
         transform: translate(-50%);
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    #bio {
+        width: 100%;
+    }
+    #quickStats {
+        font-size: 10px;
+        margin-left: -20px;
     }
 }
