@@ -1,6 +1,6 @@
 :root {
     --bg-color: #001f3c;
-/*    --shadow-color: #344;*/
+    /*    --shadow-color: #344;*/
     --title-color: #fff;
     --highlight-color: rgba(220, 250, 255, .1);
     --subtext-color: darkgray;
@@ -14,12 +14,12 @@
 }
 
 html body {
-/*    height: 100%;*/
-/*
+    /*    height: 100%;*/
+    /*
     background-image: url(/background_long.svg);
     background-size: 100%;
 */
-    background-color: rgb(1,17,19);
+    background-color: rgb(1, 17, 19);
 }
 
 #parallax1 img {
@@ -62,19 +62,19 @@ header {
 .nav-masthead .nav-link {
     padding: .25rem 0;
     font-weight: bold;
-    color: rgba(255,255,255,.5);
+    color: rgba(255, 255, 255, .5);
     border-bottom: .25rem solid transparent;
     text-decoration: none;
 }
 
 .nav-masthead .nav-link:hover,
 .nav-masthead .nav-link:focus {
-  border-bottom-color: rgba(255,255,255,.5);
+    border-bottom-color: rgba(255, 255, 255, .5);
 }
 
 .nav-masthead .active {
-  color: #fff;
-  border-bottom-color: #fff;
+    color: #fff;
+    border-bottom-color: #fff;
 }
 
 header ul {
@@ -84,10 +84,10 @@ header ul {
 
 
 body {
-  color: white;
+    color: white;
     text-align: center;
     background-color: #aaa;
-/*  text-shadow: 0 .05rem .1rem rgba(0,0,0,.5);*/
+    /*  text-shadow: 0 .05rem .1rem rgba(0,0,0,.5);*/
 }
 
 body h1 {
@@ -96,7 +96,7 @@ body h1 {
 }
 
 #bio {
-/*    padding-left: 50px;*/
+    /*    padding-left: 50px;*/
     padding-top: 200px;
     width: 500px;
 }
@@ -116,12 +116,13 @@ body h1 {
 }
 
 /*Mobile Devices*/
+
 .center-wrapper {
     box-shadow: 0 5px 8px var(--shadow-color);
     width: 660px;
     padding: 30px;
     margin: auto;
-    background-size:cover;
+    background-size: cover;
 }
 
 .skills-wrapper .skill {
@@ -130,8 +131,8 @@ body h1 {
     height: 148px;
     position: relative;
     overflow: hidden;
-/*    box-shadow: 1px 3px 5px #999;*/
-/*    background: #fefefe;*/
+    /*    box-shadow: 1px 3px 5px #999;*/
+    /*    background: #fefefe;*/
     padding: 8px;
 }
 
@@ -165,7 +166,7 @@ body h1 {
     position: absolute;
     height: 100%;
     width: 100%;
-    box-shadow: 0 0 80px rgba(0,0,0,0.5) inset;
+    box-shadow: 0 0 80px rgba(0, 0, 0, 0.5) inset;
     z-index: 10;
     transition: .5s ease;
 }
@@ -189,16 +190,16 @@ body h1 {
     margin: 4px;
     position: relative;
     overflow: hidden;
-/*    box-shadow: 1px 3px 5px #999;*/
+    /*    box-shadow: 1px 3px 5px #999;*/
     background-color: #fefefe;
     transition: .5s ease;
 }
 
 .projects-wrapper .project-img {
-/*    width: 120%;*/
+    /*    width: 120%;*/
     width: 100%;
     height: 100%;
-    
+
     transform: scale(1.25);
     object-fit: cover;
     z-index: -1;
@@ -206,7 +207,7 @@ body h1 {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    
+
 }
 
 .projects-wrapper .project-title {
@@ -214,7 +215,7 @@ body h1 {
     left: 8px;
     top: 16px;
     max-width: 144px;
-/*    right: 8px;*/
+    /*    right: 8px;*/
     font-size: 22px;
     text-shadow: 0px 1px 2px #999;
     color: white;
@@ -229,14 +230,14 @@ body h1 {
     bottom: 4px;
     padding-left: 8px;
     padding-right: 8px;
-/*    width: 152px;*/
+    /*    width: 152px;*/
     max-height: 0;
-/*    text-overflow: clip;*/
+    /*    text-overflow: clip;*/
     text-align: left;
     overflow: hidden;
     transition: 1s ease;
     opacity: 0;
-/*    transition-delay: .2s;*/
+    /*    transition-delay: .2s;*/
     font-size: 10px;
     color: white;
     text-shadow: 0px 1px 2px #AAA;
@@ -244,14 +245,14 @@ body h1 {
 }
 
 .projects-wrapper .project:hover .vignette {
-    box-shadow: 0 0 200px rgba(0,0,0,0.9) inset;
+    box-shadow: 0 0 200px rgba(0, 0, 0, 0.9) inset;
     height: 100%;
     width: 100%;
 }
 
 .projects-wrapper .project:hover {
-/*    height: 160px;*/
-/*    width: 210px;*/
+    /*    height: 160px;*/
+    /*    width: 210px;*/
 }
 
 .projects-wrapper .project:hover .project-img {
@@ -260,12 +261,14 @@ body h1 {
     margin-left: auto;
     margin-right: auto;
 }
+
 .projects-wrapper .project:hover .project-title {
     top: 4px;
     font-size: 18px;
     max-width: 120px;
 }
-.projects-wrapper .project:hover .project-description{
+
+.projects-wrapper .project:hover .project-description {
     max-height: 100px;
     font-size: 10px;
     opacity: 1;
@@ -278,7 +281,7 @@ body h1 {
 }
 
 .interest {
-/*    background-color: white;*/
+    /*    background-color: white;*/
 }
 
 .interests-wrapper .interest {
@@ -286,9 +289,9 @@ body h1 {
     height: 54px;
     width: 268px;
     padding: 8px;
-/*    margin: 4px;*/
+    /*    margin: 4px;*/
     position: relative;
-/*    box-shadow: 1px 3px 5px #999;*/
+    /*    box-shadow: 1px 3px 5px #999;*/
     overflow: hidden;
 }
 
@@ -314,18 +317,18 @@ body h1 {
     left: 12px;
     top: 12px;
     position: absolute;
-/*    height: 30px;*/
+    /*    height: 30px;*/
     height: 32px;
     -webkit-filter: invert(100%);
 }
 
 .interests-wrapper .interest:hover {
-/*    background-color: var(--highlight-color);*/
+    /*    background-color: var(--highlight-color);*/
     transition: .5s;
 }
 
 .contact-card {
-/*    background-color: white;*/
+    /*    background-color: white;*/
 }
 
 .contacts-wrapper .contact-card {
@@ -334,7 +337,7 @@ body h1 {
     padding: 8px;
     margin: 2px;
     position: relative;
-/*    box-shadow: 1px 3px 5px #999;*/
+    /*    box-shadow: 1px 3px 5px #999;*/
     overflow: hidden;
     color: lightgrey;
 }
@@ -343,9 +346,11 @@ body h1 {
 .contacts-wrapper #email {
     width: 270px;
 }
+
 .contacts-wrapper #phone {
     width: 180px;
 }
+
 .contacts-wrapper #address {
     width: 458px;
 }
@@ -363,26 +368,29 @@ body h1 {
     left: 12px;
     top: 8px;
     position: absolute;
-/*    height: 30px;*/
+    /*    height: 30px;*/
     height: 24px;
     -webkit-filter: invert(100%);
 }
 
 .contacts-wrapper .contact-card:hover {
-/*    background-color: var(--tile-color);*/
+    /*    background-color: var(--tile-color);*/
     transition: .5s;
 }
 
-/* Desktop Devices */
 @media only screen and (max-width: 660px) {
     .center-wrapper {
         width: 100%;
     }
-    
+
     .projects-wrapper .project {
         width: 120px;
         height: 90px;
         margin: 4px;
+    }
+
+    .projects-wrapper .project-title {
+        font-size: 16px;
     }
 
 }
@@ -393,7 +401,7 @@ body h1 {
         left: 50%;
         transform: translate(-50%);
     }
-    
+
     #pF {
         width: 1200px;
         left: 50%;

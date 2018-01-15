@@ -42,12 +42,12 @@
 
     <header id="top">
         <ul class="nav nav-masthead">
-            <a class="nav-link active" href="#home">Intro</a>
-            <a class="nav-link" href="#skills">Skills</a>
-            <a class="nav-link" href="#projects">Projects</a>
-            <a class="nav-link" href="#interests">Interests</a>
-            <a class="nav-link" href="#resume">Resume</a>
-            <a class="nav-link" href="#contact">Contact Me</a>
+            <a class="nav-link active" id='bio-link' href="#bio">Intro</a>
+            <a class="nav-link" id='skills-link' href="#skills">Skills</a>
+            <a class="nav-link" id='projects-link' href="#projects">Projects</a>
+            <a class="nav-link" id='interests-link' href="#interests">Interests</a>
+            <a class="nav-link" id='resume-link' href="#resume">Resume</a>
+            <a class="nav-link" id='contact-link' href="#contact">Contact Me</a>
         </ul>
     </header>
     
@@ -60,8 +60,8 @@
                 <h1 id="fullName">Marko Ritachka</h1>
                 <div id="quickStats">
                     <ul>
-                        <li>Junior student studying at <strong>UC San Diego</strong></li>
-                        <li>Majoring in <strong>Computer Engineering</strong></li>
+                        <li>Junior student currently attending <strong>UC San Diego</strong></li>
+                        <li>Pursuing a Bachelor's degree in <strong>Computer Engineering</strong></li>
                         <li>Addicted to creating <strong>cool things</strong></li>
                     </ul>
                 </div>
@@ -376,10 +376,26 @@
             } else {
                 head.style.backgroundColor = bgColor + trans + ')'
             }
+
+        }
+        
+        function updateNavBar() {
+            var off = 100
+            var sections = ['bio', 'skills', 'projects', 'interests', 'resume', 'contact']
+            for (i = 0; i < sections.length-1; i++) {
+                if (window.scrollY+off > document.getElementById(sections[i]).offsetTop &&
+                    window.scrollY+off < document.getElementById(sections[i+1]).offsetTop) {
+                    for (elem in sections) {
+                        document.getElementById(sections[elem]+'-link').classList.remove('active')
+                    }
+                    document.getElementById(sections[i]+'-link').classList.add('active')
+                }
+            }
         }
  
         window.addEventListener('scroll', function(){
             requestAnimationFrame(parallax)
+            requestAnimationFrame(updateNavBar)
         }, false)
     </script>
     
