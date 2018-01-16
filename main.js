@@ -8,29 +8,38 @@
 //        || function(f){setTimeout(f, 1000/60)}
 //         
 
-var latestKnownScrollY = 0;
+//var latestKnownScrollY = 0;
+
+var latestKnownScrollY,
+    scheduledAnimationFrame = false;
+
+var parallaxArt = [];
+for (var i = 0; i <= 7; i++)
+    parallaxArt.push(document.getElementById('p'+i));
+var pb = document.getElementById('pb');
+var head = document.getElementById('top');
+var sections = ['bio', 'skills', 'projects', 'interests', 'resume', 'contact'];
+var sectionDivs = [];
+var sectionLinks = [];
+for (var sec in sections) {
+    sectionDivs.push(document.getElementById(sections[sec]));
+    sectionLinks.push(document.getElementById(sections[sec]+'-link'));
+}
 
 function parallax() {
-    requestAnimationFrame(parallax);
+//    requestAnimationFrame(parallax);
 
     var backSpeed = 0.09;
     var currentScrollY = latestKnownScrollY;
 
-    document.getElementById('p0').style.top = -currentScrollY * (0 * backSpeed) + 'px';
-    document.getElementById('p1').style.top = -currentScrollY * (1 * backSpeed) + 'px';
-    document.getElementById('p2').style.top = -currentScrollY * (2 * backSpeed) + 'px';
-    document.getElementById('p3').style.top = -currentScrollY * (3 * backSpeed) + 'px';
-    document.getElementById('p4').style.top = -currentScrollY * (4 * backSpeed) + 'px';
-    document.getElementById('p5').style.top = -currentScrollY * (5 * backSpeed) + 'px';
-    document.getElementById('p6').style.top = -currentScrollY * (6 * backSpeed) + 'px';
-    document.getElementById('p7').style.top = -currentScrollY * (7 * backSpeed) + 'px';
-    document.getElementById('pb').style.top = (-currentScrollY * (7 * backSpeed)) + 'px';
+    for (var art in parallaxArt)
+        parallaxArt[art].style.top = -currentScrollY * (art * backSpeed) + 'px';
+    pb.style.top = (-currentScrollY * (7 * backSpeed)) + 'px';
 
     var bgStart = 100;
     var bgTrans = 240;
     var trans = 0.94;
     var bgColor = 'rgba(12,32,34,';
-    var head = document.getElementById('top');
 
     if (currentScrollY < bgStart)
         head.style.backgroundColor = bgColor + 0 + ')';
@@ -42,28 +51,42 @@ function parallax() {
 }
 
 function updateNavBar() {
-    requestAnimationFrame(updateNavBar);
+//    requestAnimationFrame(updateNavBar);
     var currentScrollY = latestKnownScrollY;
 
     var off = 100;
-    var sections = ['bio', 'skills', 'projects', 'interests', 'resume', 'contact'];
     for (var i = 0; i < sections.length - 1; i++) {
-        if (currentScrollY + off > document.getElementById(sections[i]).offsetTop &&
-            currentScrollY + off < document.getElementById(sections[i + 1]).offsetTop) {
-            for (var elem in sections) {
-                document.getElementById(sections[elem] + '-link').classList.remove('active');
+        if (currentScrollY + off > sectionDivs[i].offsetTop &&
+            currentScrollY + off < sectionDivs[i+1].offsetTop) {
+            for (var sl in sectionLinks) {
+                sectionLinks[sl].classList.remove('active');
             }
-            document.getElementById(sections[i] + '-link').classList.add('active');
+            sectionLinks[i].classList.add('active');
         }
     }
 }
 
+//
+//function onScroll(evt) {
+//    latestKnownScrollY = window.scrollY;
+//}
+//
+//window.addEventListener('scroll', onScroll);
+//
+//requestAnimationFrame(parallax);
+//requestAnimationFrame(updateNavBar);
 
-function onScroll(evt) {
+function onScroll( e ) {
     latestKnownScrollY = window.scrollY;
+    if(scheduledAnimationFrame) return;
+    scheduledAnimationFrame = true;
+    requestAnimationFrame( updatePage );
 }
 
-window.addEventListener('scroll', onScroll);
+function updatePage( ) {
+    scheduledAnimationFrame = false;
+    parallax();
+    updateNavBar();
+}
 
-requestAnimationFrame(parallax);
-requestAnimationFrame(updateNavBar);
+window.addEventListener( 'scroll', onScroll, false );
