@@ -3,12 +3,13 @@ let scheduledAnimationFrame = false
 
 const parallaxArt = []
 const numArt = 8
-let distance = -2
+let distance = -5
 let distanceMultiplier = 1.5
+const perspective = 10
 for (let i = numArt - 1; i >= 0; i--) {
     const elem = document.getElementById('p'+i)
     const transZ = distance + 'px'
-    const scale = 1 + (distance / -10)
+    const scale = 1 + (distance / (-1 * perspective))
     const transY = -1 * (50 - (50 / scale)) + 'vh'
     elem.style.transform = 'translateZ(' + transZ + ') scale(' + scale + ') translateY(' + transY + ')'
     parallaxArt.push(elem)
