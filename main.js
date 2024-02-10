@@ -1,92 +1,73 @@
-/* jshint browser: true */
-// 
-//        // Create cross browser requestAnimationFrame method:
-//        window.requestAnimationFrame = window.requestAnimationFrame
-//        || window.mozRequestAnimationFrame
-//        || window.webkitRequestAnimationFrame
-//        || window.msRequestAnimationFrame
-//        || function(f){setTimeout(f, 1000/60)}
-//         
+let latestKnownScrollY
+let scheduledAnimationFrame = false
 
-//var latestKnownScrollY = 0;
-
-var latestKnownScrollY,
-    scheduledAnimationFrame = false;
-
-var parallaxArt = [];
-for (var i = 0; i <= 7; i++)
-    parallaxArt.push(document.getElementById('p'+i));
-var pb = document.getElementById('pb');
-var head = document.getElementById('top');
-var sections = ['bio', 'skills', 'projects', 'interests', 'resume', 'contact'];
-var sectionDivs = [];
-var sectionLinks = [];
-for (var sec in sections) {
-    sectionDivs.push(document.getElementById(sections[sec]));
-    sectionLinks.push(document.getElementById(sections[sec]+'-link'));
+const parallaxArt = []
+const numArt = 8
+let distance = -2
+let distanceMultiplier = 1.5
+for (let i = numArt - 1; i >= 0; i--) {
+    const elem = document.getElementById('p'+i)
+    const transZ = distance + 'px'
+    const scale = 1 + (distance / -10)
+    const transY = -1 * (50 - (50 / scale)) + 'vh'
+    elem.style.transform = 'translateZ(' + transZ + ') scale(' + scale + ') translateY(' + transY + ')'
+    parallaxArt.push(elem)
+    distance *= distanceMultiplier
+}
+const pb = document.getElementById('pb')
+const head = document.getElementById('top')
+const sections = ['bio', 'skills', 'projects', 'interests', 'resume', 'contact'];
+const sectionDivs = []
+const sectionLinks = []
+for (let sec in sections) {
+    sectionDivs.push(document.getElementById(sections[sec]))
+    sectionLinks.push(document.getElementById(sections[sec]+'-link'))
 }
 
 function parallax() {
-//    requestAnimationFrame(parallax);
+    const backSpeed = 0.09
+    const currentScrollY = latestKnownScrollY
 
-    var backSpeed = 0.09;
-    var currentScrollY = latestKnownScrollY;
+    const bgStart = 100
+    const bgTrans = 240
+    const trans = 0.94
+    const bgColor = 'rgba(12,32,34,'
 
-    for (var art in parallaxArt)
-        parallaxArt[art].style.top = -currentScrollY * (art * backSpeed) + 'px';
-    pb.style.top = (-currentScrollY * (7 * backSpeed)) + 'px';
-
-    var bgStart = 100;
-    var bgTrans = 240;
-    var trans = 0.94;
-    var bgColor = 'rgba(12,32,34,';
-
-    if (currentScrollY < bgStart)
-        head.style.backgroundColor = bgColor + 0 + ')';
-    else if (currentScrollY >= bgStart && currentScrollY <= bgTrans)
-        head.style.backgroundColor = bgColor + (trans * (currentScrollY - bgStart) / (bgTrans - bgStart)) + ')';
-    else
-        head.style.backgroundColor = bgColor + trans + ')';
+    if (currentScrollY < bgStart) {
+        head.style.backgroundColor = bgColor + 0 + ')'
+    } else if (currentScrollY >= bgStart && currentScrollY <= bgTrans) {
+        head.style.backgroundColor = bgColor + (trans * (currentScrollY - bgStart) / (bgTrans - bgStart)) + ')'
+    } else {
+        head.style.backgroundColor = bgColor + trans + ')'
+    }
 
 }
 
 function updateNavBar() {
-//    requestAnimationFrame(updateNavBar);
-    var currentScrollY = latestKnownScrollY;
-
-    var off = 100;
-    for (var i = 0; i < sections.length - 1; i++) {
-        if (currentScrollY + off > sectionDivs[i].offsetTop &&
-            currentScrollY + off < sectionDivs[i+1].offsetTop) {
-            for (var sl in sectionLinks) {
-                sectionLinks[sl].classList.remove('active');
+    const off = 200;
+    for (let i = 0; i < sections.length - 1; i++) {
+        if (latestKnownScrollY + off > sectionDivs[i].offsetTop &&
+            latestKnownScrollY + off < sectionDivs[i+1].offsetTop) {
+            for (let sl in sectionLinks) {
+                sectionLinks[sl].classList.remove('active')
             }
-            sectionLinks[i].classList.add('active');
+            sectionLinks[i].classList.add('active')
         }
     }
 }
 
-//
-//function onScroll(evt) {
-//    latestKnownScrollY = window.scrollY;
-//}
-//
-//window.addEventListener('scroll', onScroll);
-//
-//requestAnimationFrame(parallax);
-//requestAnimationFrame(updateNavBar);
-
-function onScroll( e ) {
-    latestKnownScrollY = window.scrollY;
-    if(scheduledAnimationFrame) return;
-    scheduledAnimationFrame = true;
-    requestAnimationFrame( updatePage );
+function onScroll (e) {
+    latestKnownScrollY = parallaxElem.scrollTop
+    if (scheduledAnimationFrame) return
+    scheduledAnimationFrame = true
+    requestAnimationFrame(updatePage)
 }
 
 function updatePage( ) {
-    scheduledAnimationFrame = false;
-    parallax();
-    updateNavBar();
+    parallax()
+    updateNavBar()
+    scheduledAnimationFrame = false
 }
 
-window.addEventListener( 'scroll', onScroll, false );
+const parallaxElem = document.getElementById('parallax')
+parallaxElem.addEventListener('scroll', onScroll, false )

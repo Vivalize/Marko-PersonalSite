@@ -33,300 +33,302 @@
 </head>
 
 <body data-spy="scroll" data-target=".nav-stuff" data-offset="50">
-    <div id="parallax1">
-        <img src="images/parallax/0.png" id="p0">
-        <img src="images/parallax/1.png" id="p1">
-        <img src="images/parallax/2.png" id="p2">
-        <img src="images/parallax/3.png" id="p3">
-        <img src="images/parallax/4.png" id="p4">
-        <img src="images/parallax/5.png" id="p5">
-        <img src="images/parallax/6.png" id="p6">
-    </div>
-    <div id="pF">
-        <img src="images/parallax/7.png" id="p7">
-        <img src="images/background_blue.svg" id="pb">
-    </div>
-    <header id="top">
-        <ul class="nav nav-masthead">
-            <a class="nav-link active" id='bio-link' href="#bio">Intro</a>
-            <a class="nav-link" id='skills-link' href="#skills">Skills</a>
-            <a class="nav-link" id='projects-link' href="#projects">Projects</a>
-            <a class="nav-link" id='interests-link' href="#interests">Interests</a>
-            <a class="nav-link" id='resume-link' href="#resume">Resume</a>
-            <a class="nav-link" id='contact-link' href="#contact">Contact Me</a>
-        </ul>
-    </header>
+    <div id="parallax" style="background-color: #6ddef0; position: absolute;">
+        <img src="images/parallax/0.png" id="p0" class="p-layer">
+        <img src="images/parallax/1.png" id="p1" class="p-layer">
+        <img src="images/parallax/2.png" id="p2" class="p-layer">
+        <img src="images/parallax/3.png" id="p3" class="p-layer">
+        <img src="images/parallax/4.png" id="p4" class="p-layer">
+        <img src="images/parallax/5.png" id="p5" class="p-layer">
+        <img src="images/parallax/6.png" id="p6" class="p-layer">
+        <div id="p7" class="p-layer">
+            <img src="images/parallax/7.png" style="width: 100%;" >
+            <img src="images/background_blue.svg" style="width: 100%;">
+        </div>
+    
+    <div style="display: flex; justify-content: center;">
 
-    <div class="center-wrapper" id="bio">
-        <div class="media">
-            <div class="media-left media-middle">
-                <img src="images/bioPic.JPG" class="img-circle" id="profilePic" alt="Marko">
-            </div>
-            <div class="media-body">
-                <h1 id="fullName">Marko Ritachka</h1>
-                <div id="quickStats">
-                    <ul>
-                        <li>Addicted to creating <strong>cool things</strong></li>
-                        <li><strong>Full-stack</strong> engineer specializing in the manufacturing industry</li>
-                        <li>Graduated with B.S. in Computer Science at <strong>UC San Diego</strong></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!--        <hr class="half-rule"/>-->
+        <div style="padding: 0 16px 16px 16px; width: 628px;">
+            <header style="font-size: 18px; border-radius: 16px;" id="top">
+                <div style="display: flex; gap: 8px; justify-content: space-between;" class="nav nav-masthead">
+                    <a class="nav-link active" id='bio-link' href="#bio">Intro</a>
+                    <a class="nav-link" id='skills-link' href="#skills">Skills</a>
+                    <a class="nav-link" id='projects-link' href="#projects">Projects</a>
+                    <a class="nav-link" id='interests-link' href="#interests">Interests</a>
+                    <a class="nav-link" id='resume-link' href="#resume">Resume</a>
+                    <a class="nav-link" id='contact-link' href="#contact">Contact Me</a>
+                </ul>
+            </header>
 
+            <div id="bio" style="display: flex; gap: 20px; align-items: center; margin-top: 200px;">
+                <div>
+                    <img src="images/bioPic.JPG" alt="Marko" style="border-radius: 100px; width: 100px;">
+                </div>
+                <div style="color: var(--title-color)">
+                    <h1 style="margin: 0;">marko ritachka</h1>
+                    <h4 style="opacity: 0.9; margin: 0;">developer • maker • designer</h4>
+                    <!-- <ul>
+                            <li>Addicted to creating <strong>cool things</strong></li>
+                            <li><strong>Full-stack</strong> engineer specializing in the manufacturing industry</li>
+                            <li>Graduated with B.S. in Computer Science at <strong>UC San Diego</strong></li>
+                        </ul> -->
+                </div>
+            </div>
+            <!--        <hr class="half-rule"/>-->
 
-    </div>
-    <div class="center-wrapper" id="skills">
-        <h1>Skills</h1>
-        <hr class="half-rule" />
-        <div class="skills-wrapper">
-            <div class="skill" target="_blank">
-                <img src="images/icons/code.png" class="skill-icon">
-                <div class="skill-title">General Use</div>
-                <ul class="skill-list">
-                    <li>C</li>
-                    <li>C++</li>
-                    <li>Java</li>
-                    <li>Python</li>
-                    <li>Swift</li>
-                </ul>
+            <div id="skills" style="margin-top: 50px;">
+                <h2>skills</h2>
+                <hr class="half-rule" />
+                <div class="skills-wrapper">
+                    <div class="skill" target="_blank">
+                        <img src="images/icons/code.png" class="skill-icon">
+                        <div class="skill-title">General Use</div>
+                        <ul class="skill-list">
+                            <li>C</li>
+                            <li>C++</li>
+                            <li>Java</li>
+                            <li>Python</li>
+                            <li>Swift</li>
+                        </ul>
+                    </div>
+                    <div class="skill" target="_blank">
+                        <img src="images/icons/globe.png" class="skill-icon">
+                        <div class="skill-title">Web Development</div>
+                        <ul class="skill-list">
+                            <li>HTML/CSS/Javascript</li>
+                            <li>React/Angular/Vue.js</li>
+                            <li>Node.js/Express/Socket.io</li>
+                            <li>Bootstrap/Polymer</li>
+                            <li>Three.js/Firebase/Handlebars</li>
+                        </ul>
+                    </div>
+                    <div class="skill" target="_blank">
+                        <img src="images/icons/composure.png" class="skill-icon">
+                        <div class="skill-title">Composure</div>
+                        <ul class="skill-list">
+                            <li>GitHub (and Git workflows)</li>
+                            <li>Microsoft Office Suite</li>
+                            <li>LaTeX</li>
+                            <li>Adobe Creative Suite</li>
+                            <li>3D Modeling/Printing</li>
+                        </ul>
+                    </div>
+                    <div class="skill" target="_blank">
+                        <img src="images/icons/power.png" class="skill-icon">
+                        <div class="skill-title">Systems</div>
+                        <ul class="skill-list">
+                            <li>Windows/MacOS/Linux Distros</li>
+                            <li>iOS/Android Development</li>
+                            <li>Arduino & Related Microcontrollers</li>
+                            <li>Raspberry Pi & Embedded Linux Systems</li>
+                        </ul>
+                    </div>
+                    <div class="skill" target="_blank">
+                        <img src="images/icons/language.png" class="skill-icon">
+                        <div class="skill-title">Languages</div>
+                        <ul class="skill-list">
+                            <li>Fluent in English & Ukrainian</li>
+                            <li>Learning Mandarin & German</li>
+                        </ul>
+                    </div>
+                    <div class="skill" target="_blank">
+                        <img src="images/icons/cross.png" class="skill-icon">
+                        <div class="skill-title">Other</div>
+                        <ul class="skill-list">
+                            <li>First Aid and CPR/AED Certified</li>
+                            <li>Food Service Certified</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="skill" target="_blank">
-                <img src="images/icons/globe.png" class="skill-icon">
-                <div class="skill-title">Web Development</div>
-                <ul class="skill-list">
-                    <li>HTML/CSS/Javascript</li>
-                    <li>React/Angular/Vue.js</li>
-                    <li>Node.js/Express/Socket.io</li>
-                    <li>Bootstrap/Polymer</li>
-                    <li>Three.js/Firebase/Handlebars</li>
-                </ul>
+            <div id="projects">
+                <h2>projects</h2>
+                <hr class="half-rule" />
+                <div class="projects-wrapper">
+                    <div class="software-wrapper">
+                        <h2 class="project-category">Software</h2>
+                        <a class="project" href="http://www.bizepi.com/" target="_blank">
+                            <div class="vignette"></div>
+                            <div class="project-title">Bizepi</div>
+                            <div class="project-description">An app to browse and purchase local freelance services</div>
+                            <img src="images/projects/bizepi.png" class="project-img">
+                        </a>
+                        <div class="project">
+                            <div class="vignette"></div>
+                            <div class="project-title">What's That Food?</div>
+                            <div class="project-description">A food journaling app to keep track of and review your previous meals</div>
+                            <img src="images/projects/wtf.jpg" class="project-img">
+                        </div>
+                        <div class="project">
+                            <div class="vignette"></div>
+                            <div class="project-title">Silhouetto</div>
+                            <div class="project-description">An app that expands on iOS's depth data processing for artistic effects</div>
+                            <img src="images/projects/default.jpg" class="project-img">
+                        </div>
+                        <a class="project" href="http://www.eagle-re.com/" target="_blank">
+                            <div class="vignette"></div>
+                            <div class="project-title">Eagle Realty Website</div>
+                            <div class="project-description">A real estate website implementing IDX databases of local listings</div>
+                            <img src="images/projects/default.jpg" class="project-img">
+                        </a>
+                        <div class="project">
+                            <div class="vignette"></div>
+                            <div class="project-title">Music Visualizer</div>
+                            <div class="project-description">A creative VR music visualizer created at a Hackathon</div>
+                            <img src="images/projects/default.jpg" class="project-img">
+                        </div>
+                        <a class="project" href="https://github.com/Vivalize/Marko-PersonalSite" target="_blank">
+                            <div class="vignette"></div>
+                            <div class="project-title">This Site</div>
+                            <div class="project-description">Welcome!</div>
+                            <img src="images/projects/site.png" class="project-img">
+                        </a>
+                    </div>
+                    <div class="hardware-wrapper">
+                        <h2 class="project-category">Hardware</h2>
+                        <div class="project">
+                            <div class="vignette"></div>
+                            <div class="project-title">Custom 3D Printer</div>
+                            <div class="project-description">A custom high-end FDM Cartesian-Style 3D Printer built from scratch and continuously being upgraded</div>
+                            <img src="images/projects/printer.JPG" class="project-img">
+                        </div>
+                        <a class="project" href="https://github.com/Vivalize/Flapjackify" target="_blank">
+                            <div class="vignette"></div>
+                            <div class="project-title">Pancake Printer</div>
+                            <div class="project-description">A printer that prints and cooks pancakes in the design of an uploaded photo/vector</div>
+                            <img src="images/projects/pancake.JPG" class="project-img">
+                        </a>
+                        <div class="project">
+                            <div class="vignette"></div>
+                            <div class="project-title">Wand Laser Tag</div>
+                            <div class="project-description">An Arduino-based laser tag system embedded in the form factor of a Harry-Potter style wand</div>
+                            <img src="images/projects/default.jpg" class="project-img">
+                        </div>
+                        <div class="project">
+                            <div class="vignette"></div>
+                            <div class="project-title">Umbrella Holder</div>
+                            <div class="project-description">I worked with a client to design and fabricate a mount for a car to conveniently hold an umbrella in situations where it would be inconvenient to do otherwise</div>
+                            <img src="images/projects/umbrella.JPG" class="project-img">
+                        </div>
+                        <div class="project">
+                            <div class="vignette"></div>
+                            <div class="project-title">Custom Quadcopter</div>
+                            <div class="project-description">A quadcopter made from scratch with a 3D-printed frame</div>
+                            <img src="images/projects/drone.png" class="project-img">
+                        </div>
+                        <div class="project">
+                            <div class="vignette"></div>
+                            <div class="project-title">Cheap PC VR Headset</div>
+                            <div class="project-description">A custom designed and fabricated VR headset that's designed for affortability and compatibility with PC applications</div>
+                            <img src="images/projects/vr.JPG" class="project-img">
+                        </div>
+                    </div>
+                    <div class="fun-wrapper">
+                        <h2 class="project-category">Fun Projects</h2>
+                        <div class="project">
+                            <div class="vignette"></div>
+                            <div class="project-title">Replica Iron Man Suit</div>
+                            <div class="project-description">A wearable, motorized, and lit up replica Iron Man suit. Utilizing HUD interfaces, EEG muscle sensing, and custom current drivers.</div>
+                            <img src="images/projects/iron-man.JPG" class="project-img">
+                        </div>
+                        <a class="project" href="https://github.com/Vivalize/Arduino-Electric-Longboard" target="_blank">
+                            <div class="vignette"></div>
+                            <div class="project-title">Electic Longboard</div>
+                            <div class="project-description">Electric longboard made from scratch with top speed of 40+ mph and 30 mile range</div>
+                            <img src="images/projects/longboard.JPG" class="project-img">
+                        </a>
+                        <a class="project" href="https://github.com/Vivalize/SortingHat" target="_blank">
+                            <div class="vignette"></div>
+                            <div class="project-title">Animatronic Sorting Hat</div>
+                            <div class="project-description">An animatronic and wireless Sorting Hat from the Harry Potter films. It streams a user's voice and mimics their facial expression with 5 motors</div>
+                            <img src="images/projects/sorting-hat.jpg" class="project-img">
+                        </a>
+                        <div class="project">
+                            <div class="vignette"></div>
+                            <div class="project-title">NickBall</div>
+                            <div class="project-description">A fun Unity demo created at a Hackathon to explore simple game mechanics in VR</div>
+                            <img src="images/projects/default.jpg" class="project-img">
+                        </div>
+                        <div class="project">
+                            <div class="vignette"></div>
+                            <div class="project-title">Powersuit Costume</div>
+                            <div class="project-description">A commissioned superhero costume for a school principal at a themed event. Created with foam, 3D printing, and Arduino related electronics</div>
+                            <img src="images/projects/sprague.JPG" class="project-img">
+                        </div>
+                        <a class="project" href="http://quidditch.ucsd.edu/" target="_blank">
+                            <div class="vignette"></div>
+                            <div class="project-title">Quidditch Branding</div>
+                            <div class="project-description">An ongoing effort in graphic design to create designs for Quidditch at UCSD's logos, banners, headers, website, apparel, events, and merchandise.</div>
+                            <img src="images/projects/quidditch.png" class="project-img">
+                        </a>
+                    </div>
+                    <h3>And much more in progress...</h3>
+                </div>
             </div>
-            <div class="skill" target="_blank">
-                <img src="images/icons/composure.png" class="skill-icon">
-                <div class="skill-title">Composure</div>
-                <ul class="skill-list">
-                    <li>GitHub (and Git workflows)</li>
-                    <li>Microsoft Office Suite</li>
-                    <li>LaTeX</li>
-                    <li>Adobe Creative Suite</li>
-                    <li>3D Modeling/Printing</li>
-                </ul>
+            <div id="interests">
+                <h2>interests</h2>
+                <hr class="half-rule" />
+                <div class="interests-wrapper">
+                    <div class="interest">
+                        <img class="interest-img" src="images/icons/arduino.png">
+                        <div class="interest-title">Hobbyist Electronics</div>
+                        <div class="interest-desc">Raspis, Arduino, FPGAs, oh my!</div>
+                    </div>
+                    <div class="interest">
+                        <img class="interest-img" src="images/icons/music.png">
+                        <div class="interest-title">Music</div>
+                        <div class="interest-desc">Piano, Violin, Guitar, & Theremin</div>
+                    </div>
+                    <div class="interest">
+                        <img class="interest-img" src="images/icons/surfing.png">
+                        <div class="interest-title">Sports</div>
+                        <div class="interest-desc">Surfing✔ Gymnastics✔ Quidditch✔</div>
+                    </div>
+                    <div class="interest">
+                        <img class="interest-img" src="images/icons/3dprinting.png">
+                        <div class="interest-title">3D Printing</div>
+                        <div class="interest-desc">With my custom "Red Hot Chili Bot"</div>
+                    </div>
+                    <div class="interest">
+                        <img class="interest-img" src="images/icons/camping.png">
+                        <div class="interest-title">The Outdoors</div>
+                        <div class="interest-desc">Raised in the sparkling Trinity Alps</div>
+                    </div>
+                    <div class="interest">
+                        <img class="interest-img" src="images/icons/movies.png">
+                        <div class="interest-title">Cinema</div>
+                        <div class="interest-desc">I'm serious. And don't call me Shirley</div>
+                    </div>
+                </div>
             </div>
-            <div class="skill" target="_blank">
-                <img src="images/icons/power.png" class="skill-icon">
-                <div class="skill-title">Systems</div>
-                <ul class="skill-list">
-                    <li>Windows/MacOS/Linux Distros</li>
-                    <li>iOS/Android Development</li>
-                    <li>Arduino & Related Microcontrollers</li>
-                    <li>Raspberry Pi & Embedded Linux Systems</li>
-                </ul>
+            <div id="resume">
+                <h2>resume</h2>
+                <hr class="half-rule" />
+                <a href="/Resume.pdf" class="btn btn-info" role="button">Click Here To Download (pdf)</a>
+                <!--        <a href="/Resume_PNG.png" class="btn btn-info" role="button">Click Here To Download (png)</a>-->
+                <p id="last-updated">(Updated 4/19/22)</p>
             </div>
-            <div class="skill" target="_blank">
-                <img src="images/icons/language.png" class="skill-icon">
-                <div class="skill-title">Languages</div>
-                <ul class="skill-list">
-                    <li>Fluent in English & Ukrainian</li>
-                    <li>Learning Mandarin & German</li>
-                </ul>
-            </div>
-            <div class="skill" target="_blank">
-                <img src="images/icons/cross.png" class="skill-icon">
-                <div class="skill-title">Other</div>
-                <ul class="skill-list">
-                    <li>First Aid and CPR/AED Certified</li>
-                    <li>Food Service Certified</li>
-                </ul>
+            <div id="contact">
+                <h2>contact</h2>
+                <hr class="half-rule" />
+                <div class="contacts-wrapper" style="display: flex; justify-content: space-between;">
+                    <a href="mailto:markomarkor@gmail.com" class="contact-card" id="email">
+                        <img class="contact-icon" src="images/icons/mail.png">
+                        <h5 class="contact-info">markomarkor@gmail.com</h5>
+                    </a>
+                    <a href="tel:15307398910" class="contact-card" id="phone">
+                        <img class="contact-icon" src="images/icons/phone.png">
+                        <h5 class="contact-info">(530) 739-8910</h5>
+                    </a>
+                    <div class="contact-card" id="address">
+                        <img class="contact-icon" src="images/icons/location.png">
+                        <h5 class="contact-info">San Diego, CA</h5>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <div class="center-wrapper" id="projects">
-        <h1>Projects</h1>
-        <hr class="half-rule" />
-        <div class="projects-wrapper">
-            <div class="software-wrapper">
-                <h2 class="project-category">Software</h2>
-                <a class="project" href="http://www.bizepi.com/" target="_blank">
-                    <div class="vignette"></div>
-                    <div class="project-title">Bizepi</div>
-                    <div class="project-description">An app to browse and purchase local freelance services</div>
-                    <img src="images/projects/bizepi.png" class="project-img">
-                </a>
-                <div class="project">
-                    <div class="vignette"></div>
-                    <div class="project-title">What's That Food?</div>
-                    <div class="project-description">A food journaling app to keep track of and review your previous meals</div>
-                    <img src="images/projects/wtf.jpg" class="project-img">
-                </div>
-                <div class="project">
-                    <div class="vignette"></div>
-                    <div class="project-title">Silhouetto</div>
-                    <div class="project-description">An app that expands on iOS's depth data processing for artistic effects</div>
-                    <img src="images/projects/default.jpg" class="project-img">
-                </div>
-                <a class="project" href="http://www.eagle-re.com/" target="_blank">
-                    <div class="vignette"></div>
-                    <div class="project-title">Eagle Realty Website</div>
-                    <div class="project-description">A real estate website implementing IDX databases of local listings</div>
-                    <img src="images/projects/default.jpg" class="project-img">
-                </a>
-                <div class="project">
-                    <div class="vignette"></div>
-                    <div class="project-title">Music Visualizer</div>
-                    <div class="project-description">A creative VR music visualizer created at a Hackathon</div>
-                    <img src="images/projects/default.jpg" class="project-img">
-                </div>
-                <a class="project" href="https://github.com/Vivalize/Marko-PersonalSite" target="_blank">
-                    <div class="vignette"></div>
-                    <div class="project-title">This Site</div>
-                    <div class="project-description">Welcome!</div>
-                    <img src="images/projects/site.png" class="project-img">
-                </a>
-            </div>
-            <div class="hardware-wrapper">
-                <h2 class="project-category">Hardware</h2>
-                <div class="project">
-                    <div class="vignette"></div>
-                    <div class="project-title">Custom 3D Printer</div>
-                    <div class="project-description">A custom high-end FDM Cartesian-Style 3D Printer built from scratch and continuously being upgraded</div>
-                    <img src="images/projects/printer.JPG" class="project-img">
-                </div>
-                <a class="project" href="https://github.com/Vivalize/Flapjackify" target="_blank">
-                    <div class="vignette"></div>
-                    <div class="project-title">Pancake Printer</div>
-                    <div class="project-description">A printer that prints and cooks pancakes in the design of an uploaded photo/vector</div>
-                    <img src="images/projects/pancake.JPG" class="project-img">
-                </a>
-                <div class="project">
-                    <div class="vignette"></div>
-                    <div class="project-title">Wand Laser Tag</div>
-                    <div class="project-description">An Arduino-based laser tag system embedded in the form factor of a Harry-Potter style wand</div>
-                    <img src="images/projects/default.jpg" class="project-img">
-                </div>
-                <div class="project">
-                    <div class="vignette"></div>
-                    <div class="project-title">Umbrella Holder</div>
-                    <div class="project-description">I worked with a client to design and fabricate a mount for a car to conveniently hold an umbrella in situations where it would be inconvenient to do otherwise</div>
-                    <img src="images/projects/umbrella.JPG" class="project-img">
-                </div>
-                <div class="project">
-                    <div class="vignette"></div>
-                    <div class="project-title">Custom Quadcopter</div>
-                    <div class="project-description">A quadcopter made from scratch with a 3D-printed frame</div>
-                    <img src="images/projects/drone.png" class="project-img">
-                </div>
-                <div class="project">
-                    <div class="vignette"></div>
-                    <div class="project-title">Cheap PC VR Headset</div>
-                    <div class="project-description">A custom designed and fabricated VR headset that's designed for affortability and compatibility with PC applications</div>
-                    <img src="images/projects/vr.JPG" class="project-img">
-                </div>
-            </div>
-            <div class="fun-wrapper">
-                <h2 class="project-category">Fun Projects</h2>
-                <div class="project">
-                    <div class="vignette"></div>
-                    <div class="project-title">Replica Iron Man Suit</div>
-                    <div class="project-description">A wearable, motorized, and lit up replica Iron Man suit. Utilizing HUD interfaces, EEG muscle sensing, and custom current drivers.</div>
-                    <img src="images/projects/iron-man.JPG" class="project-img">
-                </div>
-                <a class="project" href="https://github.com/Vivalize/Arduino-Electric-Longboard" target="_blank">
-                    <div class="vignette"></div>
-                    <div class="project-title">Electic Longboard</div>
-                    <div class="project-description">Electric longboard made from scratch with top speed of 40+ mph and 30 mile range</div>
-                    <img src="images/projects/longboard.JPG" class="project-img">
-                </a>
-                <a class="project" href="https://github.com/Vivalize/SortingHat" target="_blank">
-                    <div class="vignette"></div>
-                    <div class="project-title">Animatronic Sorting Hat</div>
-                    <div class="project-description">An animatronic and wireless Sorting Hat from the Harry Potter films. It streams a user's voice and mimics their facial expression with 5 motors</div>
-                    <img src="images/projects/sorting-hat.jpg" class="project-img">
-                </a>
-                <div class="project">
-                    <div class="vignette"></div>
-                    <div class="project-title">NickBall</div>
-                    <div class="project-description">A fun Unity demo created at a Hackathon to explore simple game mechanics in VR</div>
-                    <img src="images/projects/default.jpg" class="project-img">
-                </div>
-                <div class="project">
-                    <div class="vignette"></div>
-                    <div class="project-title">Powersuit Costume</div>
-                    <div class="project-description">A commissioned superhero costume for a school principal at a themed event. Created with foam, 3D printing, and Arduino related electronics</div>
-                    <img src="images/projects/sprague.JPG" class="project-img">
-                </div>
-                <a class="project" href="http://quidditch.ucsd.edu/" target="_blank">
-                    <div class="vignette"></div>
-                    <div class="project-title">Quidditch Branding</div>
-                    <div class="project-description">An ongoing effort in graphic design to create designs for Quidditch at UCSD's logos, banners, headers, website, apparel, events, and merchandise.</div>
-                    <img src="images/projects/quidditch.png" class="project-img">
-                </a>
-            </div>
-            <h3>And much more in progress...</h3>
-        </div>
-    </div>
-    <div class="center-wrapper" id="interests">
-        <h1>Interests</h1>
-        <hr class="half-rule" />
-        <div class="interests-wrapper">
-            <div class="interest">
-                <img class="interest-img" src="images/icons/arduino.png">
-                <div class="interest-title">Hobbyist Electronics</div>
-                <div class="interest-desc">Raspis, Arduino, FPGAs, oh my!</div>
-            </div>
-            <div class="interest">
-                <img class="interest-img" src="images/icons/music.png">
-                <div class="interest-title">Music</div>
-                <div class="interest-desc">Piano, Violin, Guitar, & Theremin</div>
-            </div>
-            <div class="interest">
-                <img class="interest-img" src="images/icons/surfing.png">
-                <div class="interest-title">Sports</div>
-                <div class="interest-desc">Surfing✔ Gymnastics✔ Quidditch✔</div>
-            </div>
-            <div class="interest">
-                <img class="interest-img" src="images/icons/3dprinting.png">
-                <div class="interest-title">3D Printing</div>
-                <div class="interest-desc">With my custom "Red Hot Chili Bot"</div>
-            </div>
-            <div class="interest">
-                <img class="interest-img" src="images/icons/camping.png">
-                <div class="interest-title">The Outdoors</div>
-                <div class="interest-desc">Raised in the sparkling Trinity Alps</div>
-            </div>
-            <div class="interest">
-                <img class="interest-img" src="images/icons/movies.png">
-                <div class="interest-title">Cinema</div>
-                <div class="interest-desc">I'm serious. And don't call me Shirley</div>
-            </div>
-        </div>
-    </div>
-    <div class="center-wrapper" id="resume">
-        <h1>Resume</h1>
-        <hr class="half-rule" />
-        <a href="/Resume.pdf" class="btn btn-info" role="button">Click Here To Download (pdf)</a>
-        <!--        <a href="/Resume_PNG.png" class="btn btn-info" role="button">Click Here To Download (png)</a>-->
-        <p id="last-updated">(Updated 4/19/22)</p>
-    </div>
-    <div class="center-wrapper" id="contact">
-        <h1>Contact Me</h1>
-        <hr class="half-rule" />
-        <div class="contacts-wrapper" style="display: flex; justify-content: space-between;">
-            <a href="mailto:markomarkor@gmail.com" class="contact-card" id="email">
-                <img class="contact-icon" src="images/icons/mail.png">
-                <h5 class="contact-info">markomarkor@gmail.com</h5>
-            </a>
-            <a href="tel:15307398910" class="contact-card" id="phone">
-                <img class="contact-icon" src="images/icons/phone.png">
-                <h5 class="contact-info">(530) 739-8910</h5>
-            </a>
-            <div class="contact-card" id="address">
-                <img class="contact-icon" src="images/icons/location.png">
-                <h5 class="contact-info">San Diego, CA</h5>
-            </div>
-        </div>
-    </div>
+</div>
     <script type="text/javascript" src="main.js"></script>
 </body>
 

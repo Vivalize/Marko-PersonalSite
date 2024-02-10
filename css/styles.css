@@ -23,32 +23,32 @@ html body {
     background-color: rgb(1, 17, 19);
 }
 
-#parallax1 img {
-    position: fixed;
-    width: 100%;
-    z-index: -50;
-    left: 0;
+#parallax {
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    perspective: 10px;
+    width: 100vw;
 }
 
-#pF {
-    position: fixed;
+.p-layer {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    right: 0%;
     width: 100%;
-    z-index: -50;
-    left: 0;
-}
-
-#pF img {
-    position: relative;
-    width: 100%;
-    left: 0;
+    z-index: -1;
+    transform-origin: top center;
 }
 
 header {
     text-decoration: none;
-    position: fixed;
+    position: sticky;
+    top: 8px;
     z-index: 1000;
-    padding: 12px;
-    width: 100%;
+    padding: 12px 20px;
+    margin: 8px -8px;
+    width: calc(100% + 16px);
 }
 
 .nav-masthead {
@@ -66,6 +66,7 @@ header {
     color: rgba(255, 255, 255, .5);
     border-bottom: .25rem solid transparent;
     text-decoration: none;
+    transition: 0.2s;
 }
 
 .nav-masthead .nav-link:hover,
@@ -79,53 +80,29 @@ header {
 }
 
 header ul {
-    font-size: 18px;
     padding: 15px 100px 30px 4px;
 }
 
 
 body {
     color: white;
-    text-align: center;
     background-color: #aaa;
     /*  text-shadow: 0 .05rem .1rem rgba(0,0,0,.5);*/
 }
 
 body h1 {
-    color: var(--title-color);
-    text-align: left;
     font-weight: 900;
 }
 
-#bio {
-    /*    padding-left: 50px;*/
-    padding-top: 200px;
-    width: 500px;
+body h2 {
+    font-weight: 800;
 }
 
-#fullName {
-    text-align: left;
-    padding-left: 20px;
-}
-
-#profilePic {
-    width: 120px;
-}
-
-#quickStats {
-    text-align: left;
+body h1, body h2, body h3, body h4, body h5, body h6 {
     color: var(--title-color);
 }
 
 /*Mobile Devices*/
-
-.center-wrapper {
-    box-shadow: 0 5px 8px var(--shadow-color);
-    width: 660px;
-    padding: 30px;
-    margin: auto;
-    background-size: cover;
-}
 
 .skills-wrapper .skill {
     display: inline-block;
@@ -190,6 +167,7 @@ body h1 {
     width: 188px;
     height: 124px;
     margin: 4px;
+    border-radius: 16px;
     position: relative;
     overflow: hidden;
     /*    box-shadow: 1px 3px 5px #999;*/
@@ -377,20 +355,6 @@ body h1 {
         font-size: 16px;
     }
 
-}
-
-@media only screen and (max-width: 1200px) {
-    #parallax1 img {
-        width: 1200px;
-        left: 50%;
-        transform: translate(-50%);
-    }
-
-    #pF {
-        width: 1200px;
-        left: 50%;
-        transform: translate(-50%);
-    }
 }
 
 @media only screen and (max-width: 500px) {
