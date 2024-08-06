@@ -55,7 +55,7 @@
         const numSpheres = 600;
         const threshold = 0.1;
         
-        let scene, camera, renderer, controls, terrain, composer, spheres, raycaster, intersection, cursorLight, cursorSphere, redLight;
+        let scene, camera, renderer, controls, terrain, composer, spheres, raycaster, intersection, cursorLight, cursorSphere, redLight, bokehPass;
         let targetNoiseStart, targetNoiseEnd, targetNoiseStartTime;
         const pointer = new THREE.Vector2();
         
@@ -106,8 +106,8 @@
             composer = new EffectComposer(renderer);
             composer.addPass(new RenderPass(scene, camera));
             
-            const bokehPass = new BokehPass(scene, camera, {
-                focus: 0.2 * planeSize,
+            bokehPass = new BokehPass(scene, camera, {
+                focus: 0.3 * planeSize,
                 aperture: 0.0003,
                 maxblur: 0.01,
                 width: window.innerWidth,
@@ -189,9 +189,12 @@
 //          const intersections = raycaster.intersectObjects([terrain], false );
 //          intersection = ( intersections.length ) > 0 ? intersections[ 0 ] : null;
 //          if (intersection) {
-////              console.log(intersection.point)
-//              cursorLight.position.set(intersection.point.x, intersection.point.y, intersection.point.z + 0)
-//              cursorSphere.position.set(intersection.point.x, intersection.point.y, intersection.point.z + 0)
+//              //              console.log(intersection.point)
+////              cursorLight.position.set(intersection.point.x, intersection.point.y, intersection.point.z + 0)
+////              cursorSphere.position.set(intersection.point.x, intersection.point.y, intersection.point.z + 0)
+//              const dist = Math.sqrt(((camera.position.x - intersection.point.x) ** 2) + ((camera.position.y - intersection.point.y) ** 2) + ((camera.position.z - intersection.point.z) ** 2))
+//              bokehPass.uniforms.focus.value = dist
+////              console.log(dist)
 //          }
             
             const vertices = terrain.geometry.attributes.position.array;
