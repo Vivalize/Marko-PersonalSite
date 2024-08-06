@@ -52,7 +52,7 @@
         const planeSize = 100;
         const density = 10;
         const interval = 2000;
-        const numSpheres = 600;
+        const numSpheres = 800;
         const threshold = 0.1;
         
         let scene, camera, renderer, controls, terrain, composer, spheres, raycaster, intersection, cursorLight, cursorSphere, redLight, bokehPass;
@@ -145,7 +145,7 @@
         function generateSpheres () {
             spheres = [];
             for (let i = 0; i < numSpheres; i++) {
-                const geometry = new THREE.SphereGeometry(0.005 * waveHeight, 8, 8);
+                const geometry = new THREE.SphereGeometry(0.005 * waveHeight, 6, 6);
                 const material = new THREE.MeshBasicMaterial({ color: 0xffffff });
                 const sphere = new THREE.Mesh(geometry, material);
                 sphere.position.x = (Math.random() - 0.5) * planeSize;
