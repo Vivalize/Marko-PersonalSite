@@ -14,13 +14,24 @@
     margin: 0;
 }
 
+canvas {
+    transition: 3s;
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
 html body {
     /*    height: 100%;*/
     /*
     background-image: url(/background_long.svg);
     background-size: 100%;
 */
-    background-color: rgb(1, 17, 19);
+/*  background-color: rgb(1, 17, 19);*/
+    background-color: black;
 }
 
 #parallax {
