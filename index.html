@@ -52,9 +52,12 @@
         const planeSize = 100;
         const density = 10;
         const interval = 2000;
+        const numSpheres = 600;
+        const threshold = 0.1;
         
-        let scene, camera, renderer, controls, terrain, composer;
+        let scene, camera, renderer, controls, terrain, composer, spheres, raycaster, intersection, cursorLight, cursorSphere, redLight;
         let targetNoiseStart, targetNoiseEnd, targetNoiseStartTime;
+        const pointer = new THREE.Vector2();
         
         function init() {
             scene = new THREE.Scene();
@@ -81,7 +84,19 @@
             pointLight.position.set(0.5 * planeSize, planeSize, 0.5 * planeSize);
             scene.add(pointLight);
             
+            cursorLight = new THREE.PointLight(0xff0000);
+            cursorLight.position.set(0, 0, 10000);
+//          scene.add(cursorLight);
+            
+            redLight = new THREE.PointLight(0xff0000, 0.4);
+            redLight.position.set((0.5 * planeSize), 0, ((0.5 * planeSize) ** 2 * bowlRaise) + (waveHeight));
+            scene.add(redLight);
+            
             generateTerrain();
+            generateSpheres();
+            
+            raycaster = new THREE.Raycaster();
+            raycaster.params.Points.threshold = threshold;
             
             // Set up post-processing chain
             composer = new EffectComposer(renderer);
@@ -97,6 +112,12 @@
             composer.addPass(bokehPass);
             
             window.addEventListener('resize', onWindowResize, false);
+            document.addEventListener('pointermove', onPointerMove);
+        }
+        
+        function onPointerMove( event ) {
+            pointer.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+            pointer.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
         }
         
         function generateTerrain() {
@@ -115,6 +136,27 @@
             });
             terrain = new THREE.Mesh(geometry, material);
             scene.add(terrain);
+        }
+        
+        function generateSpheres () {
+            spheres = [];
+            for (let i = 0; i < numSpheres; i++) {
+                const geometry = new THREE.SphereGeometry(0.005 * waveHeight, 8, 8);
+                const material = new THREE.MeshBasicMaterial({ color: 0xffffff });
+                const sphere = new THREE.Mesh(geometry, material);
+                sphere.position.x = (Math.random() - 0.5) * planeSize;
+                sphere.position.y = (Math.random() - 0.5) * planeSize;
+                spheres.push(sphere)
+                scene.add(sphere)
+            }
+            
+//          const geometry = new THREE.SphereGeometry(0.5, 8, 8);
+//          const material = new THREE.MeshBasicMaterial({ color: 0x00ffff });
+//          cursorSphere = new THREE.Mesh(geometry, material);
+//          cursorSphere.position.x = 0;
+//          cursorSphere.position.y = 0;
+//          cursorSphere.position.z = 0;
+//          scene.add(cursorSphere)
         }
         
         function onWindowResize() {
@@ -139,6 +181,15 @@
             controls.update();
             composer.render();
             
+//          raycaster.setFromCamera( pointer, camera );
+//          const intersections = raycaster.intersectObjects([terrain], false );
+//          intersection = ( intersections.length ) > 0 ? intersections[ 0 ] : null;
+//          if (intersection) {
+////              console.log(intersection.point)
+//              cursorLight.position.set(intersection.point.x, intersection.point.y, intersection.point.z + 0)
+//              cursorSphere.position.set(intersection.point.x, intersection.point.y, intersection.point.z + 0)
+//          }
+            
             const vertices = terrain.geometry.attributes.position.array;
             const progress = easeInOut((Date.now() - targetNoiseStartTime) / interval)
             const constant = Date.now() / 1000
@@ -148,6 +199,12 @@
                 vertices[i + 2] = base + noise * waveHeight * 0.1;
             }
             terrain.geometry.attributes.position.needsUpdate = true;
+            
+            spheres.forEach(sphere => {
+                const base = ((sphere.position.x ** 2) + (sphere.position.y ** 2)) * bowlRaise;
+                const noise = targetNoiseStart((sphere.position.x / density) - test, (sphere.position.y / density))
+                sphere.position.z = base + noise * waveHeight * 0.1;
+            })
         }
         
         init();
