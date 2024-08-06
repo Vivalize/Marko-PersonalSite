@@ -41,6 +41,21 @@ html body {
     transform-origin: top center;
 }
 
+a {
+    cursor: pointer;
+}
+
+.btn-info {
+    background-color: #444d80bb !important;
+    border-radius: 8px !important;
+    border: 2px solid #424c80 !important;
+    transition: 0.2s;
+}
+
+.btn-info:hover {
+    background-color: #525d9cbb !important;
+}
+
 header {
     text-decoration: none;
     position: sticky;
