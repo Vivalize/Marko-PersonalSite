@@ -212,6 +212,24 @@
                 const noise = targetNoiseStart((sphere.position.x / density) - test, (sphere.position.y / density))
                 sphere.position.z = base + noise * waveHeight * 0.1;
             })
+            
+//          const slopeSample = 0.1
+//          const slideSpeed = 0.001
+//          spheres.forEach(sphere => {
+//              const base = ((sphere.position.x ** 2) + (sphere.position.y ** 2)) * bowlRaise;
+//              let posX = (sphere.position.x / density) - test
+//              let posY = (sphere.position.y / density)
+//              
+//              const slopeX = (targetNoiseStart(posX + slopeSample, posY) - targetNoiseStart(posX - slopeSample, posY)) / (2 * slopeSample) * slideSpeed
+//              const slopeY = (targetNoiseStart(posX, posY + slopeSample) - targetNoiseStart(posX, posY - slopeSample)) / (2 * slopeSample) * slideSpeed
+//              sphere.position.x -= slopeX
+//              sphere.position.y -= slopeY
+//              
+//              posX -= slopeX
+//              posY -= slopeY
+//              const noise = targetNoiseStart(posX, posY)
+//              sphere.position.z = base + noise * waveHeight * 0.1;
+//          })
         }
         
         init();
@@ -238,11 +256,11 @@
 <!--                    <li>Graduated with B.S. in Computer Science at <strong>UC San Diego</strong></li>-->
 <!--                </ul>-->
                     <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; margin-bottom: 8px;">
-                        <a style="width: 200px; display: flex; gap: 8px; align-items: center; justify-content: center;" href="/Resume_MarkoRitachka.pdf" class="btn btn-info" role="button">
+                        <a style="width: 200px; display: flex; gap: 8px; align-items: center; justify-content: center; background: linear-gradient(#7865ad, #524585);" href="/Resume_MarkoRitachka.pdf" class="btn btn-info" role="button">
                                 <img src="images/icons/file-arrow-down-solid.svg" alt="Download Icon" style="width: 16px; height: 16px; filter: invert(1) sepia(1) saturate(5) hue-rotate(180deg) brightness(3);">
                                 <div>Download Resume</div>
                         </a>
-                        <a target="_blank" style="width: 200px; display: flex; gap: 8px; align-items: center; justify-content: center;" href="https://www.linkedin.com/in/mritachka/" class="btn btn-info" role="button">
+                        <a target="_blank" style="width: 200px; display: flex; gap: 8px; align-items: center; justify-content: center; background: linear-gradient(#0077B5, #00539c);" href="https://www.linkedin.com/in/mritachka/" class="btn btn-info" role="button">
                             <img src="images/icons/linkedin-brands-solid.svg" alt="Download Icon" style="width: 16px; height: 16px; filter: invert(1) sepia(1) saturate(5) hue-rotate(180deg) brightness(3);">
                             <div>View on LinkedIn</div>
                         </a>

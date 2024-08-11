@@ -57,14 +57,18 @@ a {
 }
 
 .btn-info {
-    background-color: #444d80bb !important;
+/*  background-color: #444d80bb !important;*/
+/*  background: linear-gradient(#0077B5, #00539c) !important;*/
     border-radius: 8px !important;
-    border: 2px solid #424c80 !important;
+    box-shadow: inset -2px -2px 8px #FFF2, inset -2px -2px 8px #0008;
+/*  border: 2px solid #424c80 !important;*/
+    border: 1px solid #0008 !important;
     transition: 0.2s;
 }
 
 .btn-info:hover {
-    background-color: #525d9cbb !important;
+/*  background-color: #525d9cbb !important;*/
+/*  background: linear-gradient(#e66465, #9198e5) !important;*/
     transform: scale(1.02);
 }
 
