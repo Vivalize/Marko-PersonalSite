@@ -1,7 +1,7 @@
 :root {
     --bg-color: #001f3c;
     /*    --shadow-color: #344;*/
-    --title-color: #fff;
+    --title-color: rgb(236, 237, 238);
     --highlight-color: rgba(220, 250, 255, .1);
     --subtext-color: darkgray;
     --tile-color: lightgray;
@@ -16,12 +16,13 @@
 
 canvas {
     transition: opacity 3s;
-    z-index: -1;
+    z-index: 0;
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
     width: 100%;
+    pointer-events: auto;
 }
 
 html body {
@@ -59,11 +60,13 @@ a {
 .btn-info {
 /*  background-color: #444d80bb !important;*/
 /*  background: linear-gradient(#0077B5, #00539c) !important;*/
-    border-radius: 8px !important;
+    border-radius: 16px !important;
 /*  box-shadow: inset 2px 2px 8px #FFF2, inset -2px -2px 8px #0008;*/
 /*  border: 2px solid #424c80 !important;*/
     border: 1px solid #0008 !important;
     transition: 0.2s;
+    height: 40px;
+    corner-shape: squircle;
 }
 
 .btn-info:hover {

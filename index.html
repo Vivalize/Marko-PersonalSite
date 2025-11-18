@@ -55,9 +55,11 @@
         const numSpheres = 1000;
         const threshold = 0.1;
         
-        let scene, camera, renderer, controls, terrain, composer, spheres, raycaster, intersection, cursorLight, cursorSphere, redLight, bokehPass;
+        let scene, camera, renderer, controls, terrain, terrainGrid, composer, spheres, raycaster, intersection, cursorLight, cursorSphere, redLight, bokehPass;
         let targetNoiseStart, targetNoiseEnd, targetNoiseStartTime;
         const pointer = new THREE.Vector2();
+
+        const clock = new THREE.Clock();
         
         function init() {
             scene = new THREE.Scene();
@@ -135,12 +137,22 @@
             
             const material = new THREE.MeshPhongMaterial({
                 color: 0x5566aa,
+                transparent: true,
+                wireframe: false,
+                opacity: 0,
+                wireframeLinewidth: 2,
+                shininess: 150
+            });
+            const materialGrid = new THREE.MeshPhongMaterial({
+                color: 0x5566aa,
                 wireframe: true,
                 wireframeLinewidth: 2,
                 shininess: 150
             });
             terrain = new THREE.Mesh(geometry, material);
+            terrainGrid = new THREE.Mesh(geometry, materialGrid);
             scene.add(terrain);
+            scene.add(terrainGrid);
         }
         
         function generateSpheres () {
@@ -151,6 +163,11 @@
                 const sphere = new THREE.Mesh(geometry, material);
                 sphere.position.x = (Math.random() - 0.5) * planeSize;
                 sphere.position.y = (Math.random() - 0.5) * planeSize;
+                sphere.userData.sparkle = {
+                    baseSize: sphere.scale.x,
+                    speed: 1 + Math.random() * 8,
+                    phase: Math.random() * Math.PI * 2
+                };
                 spheres.push(sphere)
                 scene.add(sphere)
             }
@@ -207,11 +224,15 @@
                 vertices[i + 2] = base + noise * waveHeight * 0.1;
             }
             terrain.geometry.attributes.position.needsUpdate = true;
-            
+            const t = clock.getElapsedTime();
             spheres.forEach(sphere => {
                 const base = ((sphere.position.x ** 2) + (sphere.position.y ** 2)) * bowlRaise;
                 const noise = targetNoiseStart((sphere.position.x / density) - test, (sphere.position.y / density))
                 sphere.position.z = base + noise * waveHeight * 0.1;
+
+                const { baseSize, speed, phase } = sphere.userData.sparkle;
+                const s = baseSize * (1 + 0.2 * Math.sin(t * speed + phase));
+                sphere.scale.set(s, s, s);
             })
             
 //          const slopeSample = 0.1
@@ -238,11 +259,11 @@
     </script>
 
 <body data-spy="scroll" data-target=".nav-stuff" data-offset="50">
-    <div id="parallax" style="position: absolute;">
+    <div id="parallax" style="position: absolute; pointer-events: none; z-index: 1;">
     
     <div style="display: flex; justify-content: center;">
 
-        <div style="width: 628px; margin: 0 16px; backdrop-filter: blur(2px); background-color: rgba(24, 24, 27, 0.5); border-radius: 24px; margin-top: 20vh; box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.06) 0px 0px 15px 0px, rgba(0, 0, 0, 0.22) 0px 2px 30px 0px, rgba(255, 255, 255, 0.15) 0px 0px 1px 0px inset;">
+        <div style="width: 628px; margin: 0 16px; backdrop-filter: blur(2px); background-color: rgba(24, 24, 27, 0.5); border-radius: 24px; margin-top: 20vh; box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.06) 0px 0px 15px 0px, rgba(0, 0, 0, 0.22) 0px 2px 30px 0px, rgba(255, 255, 255, 0.15) 0px 0px 1px 0px inset; corner-shape: squircle; pointer-events: auto;">
 
             <div id="bio" style="display: flex; gap: 20px; padding: 24px 32px; align-items: center;">
                 <div>
@@ -257,11 +278,11 @@
 <!--                    <li>Graduated with B.S. in Computer Science at <strong>UC San Diego</strong></li>-->
 <!--                </ul>-->
                     <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; margin-bottom: 8px;">
-                        <a style="width: 200px; display: flex; gap: 8px; align-items: center; justify-content: center; background: linear-gradient(#7865addd, #524585dd);" href="/Resume_MarkoRitachka.pdf" class="btn btn-info" role="button">
+                        <a style="width: 200px; display: flex; gap: 8px; align-items: center; justify-content: center; background-color: rgba(80, 80, 82, 0.4);" href="/Resume_MarkoRitachka.pdf" class="btn btn-info" role="button">
                                 <img src="images/icons/file-arrow-down-solid.svg" alt="Download Icon" style="width: 16px; height: 16px; filter: invert(1) sepia(1) saturate(5) hue-rotate(180deg) brightness(3);">
                                 <div>Download Resume</div>
                         </a>
-                        <a target="_blank" style="width: 200px; display: flex; gap: 8px; align-items: center; justify-content: center; background: linear-gradient(#0077B5dd, #00539cdd);" href="https://www.linkedin.com/in/mritachka/" class="btn btn-info" role="button">
+                        <a target="_blank" style="width: 200px; display: flex; gap: 8px; align-items: center; justify-content: center; background-color: rgba(80, 80, 82, 0.4);" href="https://www.linkedin.com/in/mritachka/" class="btn btn-info" role="button">
                             <img src="images/icons/linkedin-brands-solid.svg" alt="Download Icon" style="width: 16px; height: 16px; filter: invert(1) sepia(1) saturate(5) hue-rotate(180deg) brightness(3);">
                             <div>View on LinkedIn</div>
                         </a>
